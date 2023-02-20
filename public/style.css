@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 2px solid #000; */
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    background-color: #fafafa;
+}
+.container {
+    border-color: red;
+    background-color: #fff;
+    border-radius: .25rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    /* display: grid; */
+    /* width: 70%;
+    height: auto; */
+    padding: 5vh 5vw;
+}
+input {
+    padding: .2rem .25rem;
+    border-radius: .25rem;
+
+
+}
+button {
+    text-transform: capitalize;
+    padding: .2rem .25rem;
+    border-radius: .25rem;
+
+}
+#list {
+    list-style: none;
+}
+
+#list li label input {
+    margin-right: .25rem;
+}
