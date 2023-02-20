@@ -31,6 +31,8 @@ form.addEventListener("submit", e => {
     }
 
     addListItem(newTask)
+    // CLEAR INPUT LABEL AFTER LIST ITEM ADDED
+    input.value = ""
 })
 
 
@@ -39,6 +41,7 @@ function addListItem(task: Task ){
     const label = document.createElement("label")
     const checkbox = document.createElement("input")
     checkbox.type = 'checkbox'
+    checkbox.checked = task.completed
 
     label.append(checkbox, task.title)
     item.append(label)
