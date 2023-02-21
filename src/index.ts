@@ -7,14 +7,13 @@ type Task = {
     completed: boolean
     createdAt: Date
 }
-
 // SPECIFY LIST TYPE FURTHER ie. LIST = HTML UL LIST ELEMENT
 const list = document.querySelector<HTMLUListElement>("#list")
 // SPECIFY FORM TYPE FURTHER ie. FORM = HTML FORM ELEMENT
 const form = document.getElementById("new-task-form") as HTMLFormElement
 // SPECIFY INPUT TYPE FURTHER ie. TITLE = HTML INPUT ELEMENT
 const input = document.querySelector<HTMLInputElement>("#new-task-title")
-
+const tasks: Task[] = []
 // CREATE EVENT LISTENER FOR FORM
 form.addEventListener("submit", e => {
     e.preventDefault()
@@ -30,6 +29,7 @@ form.addEventListener("submit", e => {
         createdAt: new Date()
     }
 
+    tasks.push(newTask)
     addListItem(newTask)
     // CLEAR INPUT LABEL AFTER LIST ITEM ADDED
     input.value = ""
@@ -40,9 +40,11 @@ function addListItem(task: Task ){
     const item = document.createElement("li")
     const label = document.createElement("label")
     const checkbox = document.createElement("input")
+    checkbox.addEventListener("change", () => {
+        task.completed = checkbox.checked
+    })
     checkbox.type = 'checkbox'
     checkbox.checked = task.completed
-
     label.append(checkbox, task.title)
     item.append(label)
     list?.append(item)
